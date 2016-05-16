@@ -6,19 +6,40 @@ Most of the code is taken from [electron-download](https://github.com/electron-u
 
 ### usage
 
+In the simplest case, you only need to pass in filename and url template strings that will be populated with OS values: 
 ```js
 var download = require('prebuilt-download')
-
+var filename = 'electron-v{version}-{platform}-{arch}.zip'
 download({
-  version: 8,
-  arch: 'x64',
-  platform: 'windows',
-  cache: './zips' // defaults to <user home directory>/.java
-}, function (err, path) {
-  // path will be the path of the file that it downloaded.
-  // if the file was already cached it will skip
-  // downloading and call the cb with the cached file path
-  // if it wasn't cached it will download the file and save
-  // it in the cache path
+  name: 'electron',
+  filename: filename,
+  version: '1.1.0',
+  url: 'https://github.com/electron/electron/releases/download/v{version}/' + filename
+}, function (err, p) {
+  ...
+})
+
+In other cases, you might need to pass in transformation functions that modify the OS values:
+``` js
+  var filename = 'docker-{version}.tgz'
+  download({
+    name: 'docker',
+    filename: filename,
+    version: '1.11.0',
+    arch: function (a) {
+      if (a === 'ia32') {
+        return 'i386'
+      } else if (a === 'x64') {
+        return 'x86_64'
+      }
+      return a
+    },
+    platform: function (p) {
+      return _.capitalize(p)
+    },
+    url: 'https://get.docker.com/builds/{platform}/{arch}/' + filename
+  }, function (err, p) {
+    ...
+  })
 })
 ```
