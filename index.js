@@ -44,7 +44,7 @@ module.exports = function download (opts, cb) {
   var filename = buildString(opts.filename, arch, platform, version)
 
   var homeDir = homePath()
-  var cache = opts.cache || path.join(homeDir, './.node_prebuilts/' + opts.name)
+  var cache = opts.cache || path.join(homeDir, './.node_prebuilts/' + opts.name + '-' + opts.version)
 
   debug('platform/arch', platform, arch)
 

@@ -19,7 +19,7 @@ test('electron download test', function (t) {
   }, function (err, p) {
     t.error(err)
     var desiredName = 'electron-v1.1.0-' + os.platform() + '-' + os.arch() +'.zip'
-    var desiredPath = path.join(homePath(), './.node_prebuilts/electron/' + desiredName)
+    var desiredPath = path.join(homePath(), './.node_prebuilts/electron-1.1.0/' + desiredName)
     fs.unlinkSync(desiredPath)
     t.equal(p, desiredPath)
   })
@@ -54,7 +54,7 @@ test('docker download test', function (t) {
   }, function (err, p) {
     t.error(err)
     var desiredName = 'docker-1.11.0.tgz'
-    var desiredPath = path.join(homePath(), './.node_prebuilts/docker/' + desiredName) 
+    var desiredPath = path.join(homePath(), './.node_prebuilts/docker-1.11.0/' + desiredName)
     fs.unlinkSync(desiredPath)
     t.equal(p, desiredPath)
   })
