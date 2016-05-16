@@ -1,21 +1,13 @@
-# java-download
+# prebuilt-download
 
-downloads a Java JVM release package from Oracle
+Downloads prebuilt binaries (or arbitrary files, for that matter) according to a URL template string that can be parameterized by architecture, platform and version.
 
-just [electron-download](https://github.com/electron-userland/electron-download) by modified to get java.
-
-This is mostly a mashup of [electron-download](https://github.com/electron-userland/electron-download) and [Java-JRE-JDK-Downloader](https://github.com/inetquestion/Java-JRE-JDK-Downloader)
+Most of the code is taken from [electron-download](https://github.com/electron-userland/electron-download), and [java-download](https://github.com/blahah/java-download).
 
 ### usage
 
-```plain
-$ npm install --global java-download
-$ java-download --version=8 --type=jre
-$ javadl --version=8 --type=jre --platform=linux
-```
-
 ```js
-var download = require('java-download')
+var download = require('prebuilt-download')
 
 download({
   version: 8,
