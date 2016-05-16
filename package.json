@@ -1,32 +1,27 @@
 {
-  "name": "java-download",
-  "version": "0.1.0",
-  "description": "Downloads a JVM release archive from Oracle",
+  "name": "prebuilt-download",
+  "version": "1.0.0",
+  "description": "Downloads prebuilt binaries based on URL/filename templates",
   "main": "index.js",
-  "bin": {
-    "java-download": "cli.js",
-    "javadl": "cli.js"
-  },
   "scripts": {
-    "test": "node test.js"
+    "test": "tape test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blahah/java-download.git"
+    "url": "git+https://github.com/andrewosh/prebuilt-download.git"
   },
   "keywords": [
-    "java",
-    "download",
-    "JVM"
+    "prebuilt",
+    "download"
   ],
-  "author": "Richard Smith-Unna <rik@fathomlabs.io>",
+  "author": "Andrew Osheroff <andrewosh@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blahah/java-download/issues"
+    "url": "https://github.com/andrewosh/prebuilt-download/issues"
   },
-  "homepage": "https://github.com/blahah/java-download#readme",
+  "homepage": "https://github.com/andrewosh/prebuilt-download#readme",
   "devDependencies": {
-    "lodash.isequal": "^4.1.4"
+    "tape": "^4.5.1"
   },
   "dependencies": {
     "debug": "^2.2.0",
